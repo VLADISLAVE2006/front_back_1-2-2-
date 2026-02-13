@@ -1,0 +1,44 @@
+$primary: #12d889;
+$theme: dark;
+
+@mixin img($color) {
+    display: flex;
+    justify-content: center;
+    background: $color;
+    border: 0.25px solid black;
+    border-radius: 5px;
+}
+
+.card {
+    @if $theme == dark {
+        background: black;
+        color: #00BFFF;
+    }
+
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    
+    &__Name {   
+        font-size: 32px;
+        margin: 20px 0;
+    }
+    
+    &__Discription {
+        display: inline-block;
+        margin-top: 15px;
+        color: $primary;
+        text-decoration: none;
+        font-size: 18px;
+    }
+}
+
+.im1 {
+    @include img($primary);
+    max-width: 100%;     
+    height: auto;        
+    display: block;      
+    margin: 0 auto 20px;
+}
