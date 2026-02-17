@@ -1,6 +1,7 @@
 $primary: #12d889;
 $theme: dark;
 
+//Создаём миксин для изображения
 @mixin img($color) {
     display: flex;
     justify-content: center;
@@ -9,6 +10,7 @@ $theme: dark;
     border-radius: 5px;
 }
 
+//Карточка товара
 .card {
     @if $theme == dark {
         background: black;
@@ -21,11 +23,13 @@ $theme: dark;
     margin: 0 auto;
     padding: 20px;
     
+    //Имя товара
     &__Name {   
         font-size: 32px;
         margin: 20px 0;
     }
-    
+
+    //Описание товара
     &__Discription {
         display: inline-block;
         margin-top: 15px;
@@ -35,6 +39,7 @@ $theme: dark;
     }
 }
 
+//Внешний вид изображения с mixin
 .im1 {
     @include img($primary);
     max-width: 100%;     

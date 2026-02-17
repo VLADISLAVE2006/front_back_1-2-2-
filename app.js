@@ -2,18 +2,21 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+//База данных для хранения инфы
 let products = [
     {id: 1, name: 'Ноутбук', price: 50000},
     {id: 2, name: 'Смартфон', price: 30000},
     {id: 3, name: 'Наушники', price: 5000}
 ];
 
+//Парсинг json в тело запроса
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Добро пожаловать в магазин! Используйте /products');
 });
 
+//Создание нового товара
 app.post('/products', (req, res) => {
     const { name, price } = req.body;
     
@@ -33,10 +36,12 @@ app.post('/products', (req, res) => {
     res.status(201).json(newProduct);
 });
 
+//Получение списка всех товаров
 app.get('/products', (req, res) => {
     res.json(products);
 });
 
+//Получение товара по id
 app.get('/products/:id', (req, res) => {
     const product = products.find(p => p.id == req.params.id);
     
@@ -47,6 +52,7 @@ app.get('/products/:id', (req, res) => {
     res.json(product);
 });
 
+//Обновление товара по id
 app.patch('/products/:id', (req, res) => {
     const product = products.find(p => p.id == req.params.id);
     
@@ -62,6 +68,7 @@ app.patch('/products/:id', (req, res) => {
     res.json(product);
 });
 
+//Удаление товара по id
 app.delete('/products/:id', (req, res) => {
     const initialLength = products.length;
     products = products.filter(p => p.id != req.params.id);
@@ -73,6 +80,7 @@ app.delete('/products/:id', (req, res) => {
     res.json({ message: 'Товар удален' });
 });
 
+//Запуск сервера
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
     console.log('Доступные маршруты:');
