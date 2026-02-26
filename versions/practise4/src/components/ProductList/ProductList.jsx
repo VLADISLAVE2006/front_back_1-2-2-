@@ -6,8 +6,7 @@ const ProductList = ({ products, onAddToCart }) => {
     if (!products || products.length === 0) {
         return (
             <div className="product-list__empty">
-                <p>😕 Товары не найдены</p>
-                <p className="product-list__empty-hint">Попробуйте изменить параметры поиска</p>
+                <p>Товары не найдены</p>
             </div>
         );
     }

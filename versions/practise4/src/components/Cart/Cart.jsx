@@ -37,13 +37,7 @@ const Cart = ({ items, products, onUpdateQuantity, onRemove, onClear }) => {
 
                     return (
                         <div key={item.productId} className="cart__item">
-                            <div className="cart__item-image">
-                                {product.image ? (
-                                    <img src={product.image} alt={product.name} />
-                                ) : (
-                                    <span>📦</span>
-                                )}
-                            </div>
+                            {/* Убрали блок с изображением */}
                             
                             <div className="cart__item-info">
                                 <h3 className="cart__item-name">{product.name}</h3>
