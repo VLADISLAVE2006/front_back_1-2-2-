@@ -1,0 +1,120 @@
+.footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    margin-top: 48px;
+    padding: 40px 0 20px;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__section {
+        h3, h4 {
+            margin: 0 0 16px;
+        }
+    }
+
+    &__title {
+        font-size: 24px;
+        color: white;
+        margin-bottom: 12px;
+    }
+
+    &__description {
+        font-size: 14px;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        color: white;
+        margin-bottom: 16px;
+    }
+
+    &__links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__contacts {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px;
+
+        li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    &__social {
+        display: flex;
+        gap: 12px;
+
+        &-link {
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 13px;
+            transition: background 0.2s;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+
+    &__bottom {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 20px 24px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+
+        p {
+            font-size: 13px;
+            opacity: 0.7;
+            margin: 0;
+        }
+    }
+}

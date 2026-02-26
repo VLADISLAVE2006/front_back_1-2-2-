@@ -1,0 +1,23 @@
+# Node modules - игнорировать во всех папках
+**/node_modules/
+**/node_modules/**/*
+
+# Логи и временные файлы
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Сборка
+/build
+/dist
+
+# Переменные окружения
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

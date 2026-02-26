@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ноутбук ASUS ROG Strix",
+      "category": "Ноутбуки",
+      "description": "Игровой ноутбук с RTX 3060, 16GB RAM, 512GB SSD, 144Hz экран",
+      "price": 89990,
+      "stock": 5,
+      "rating": 4.8,
+      "image": "https://via.placeholder.com/200x200?text=ASUS+ROG"
+    },
+    {
+      "id": 2,
+      "name": "Смартфон iPhone 15 Pro",
+      "category": "Смартфоны",
+      "description": "A17 Pro, 6.1' OLED, 256GB, титановый корпус",
+      "price": 119990,
+      "stock": 3,
+      "rating": 4.9,
+      "image": "https://via.placeholder.com/200x200?text=iPhone+15"
+    },
+    {
+      "id": 3,
+      "name": "Наушники Sony WH-1000XM4",
+      "category": "Аксессуары",
+      "description": "Беспроводные наушники с активным шумоподавлением, 30ч работы",
+      "price": 24990,
+      "stock": 8,
+      "rating": 4.7,
+      "image": "https://via.placeholder.com/200x200?text=Sony"
+    },
+    {
+      "id": 4,
+      "name": "Монитор Samsung Odyssey G7",
+      "category": "Мониторы",
+      "description": "32' 4K, 144Hz, 1ms, изогнутый экран",
+      "price": 45990,
+      "stock": 2,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/200x200?text=Samsung"
+    },
+    {
+      "id": 5,
+      "name": "Клавиатура Logitech G Pro X",
+      "category": "Аксессуары",
+      "description": "Механическая, TKL, переключатели GX Blue",
+      "price": 12990,
+      "stock": 10,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/200x200?text=Logitech"
+    },
+    {
+      "id": 6,
+      "name": "Мышь Razer DeathAdder V3",
+      "category": "Аксессуары",
+      "description": "Оптическая, 30000 DPI, легкий дизайн 59г",
+      "price": 7990,
+      "stock": 15,
+      "rating": 4.7,
+      "image": "https://via.placeholder.com/200x200?text=Razer"
+    },
+    {
+      "id": 7,
+      "name": "Планшет iPad Pro 11",
+      "category": "Планшеты",
+      "description": "M2, 11' Liquid Retina, 128GB, поддержка Apple Pencil",
+      "price": 79990,
+      "stock": 4,
+      "rating": 4.8,
+      "image": "https://via.placeholder.com/200x200?text=iPad"
+    },
+    {
+      "id": 8,
+      "name": "SSD Samsung T7",
+      "category": "Хранение",
+      "description": "Внешний SSD 1TB, USB 3.2, до 1050MB/s",
+      "price": 8990,
+      "stock": 7,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/200x200?text=SSD"
+    },
+    {
+      "id": 9,
+      "name": "Часы Galaxy Watch 6",
+      "category": "Аксессуары",
+      "description": "44mm, GPS, измерение здоровья, 40ч работы",
+      "price": 26990,
+      "stock": 6,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/200x200?text=Watch"
+    },
+    {
+      "id": 10,
+      "name": "Роутер TP-Link Archer AX73",
+      "category": "Сеть",
+      "description": "Wi-Fi 6, 6 антенн, покрытие до 200м²",
+      "price": 11990,
+      "stock": 3,
+      "rating": 4.4,
+      "image": "https://via.placeholder.com/200x200?text=Router"
+    }
+  ]
+}

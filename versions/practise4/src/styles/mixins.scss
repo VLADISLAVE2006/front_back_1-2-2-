@@ -1,0 +1,440 @@
+@import './variables';
+
+// Flexbox миксины
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@mixin flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Grid миксины
+@mixin grid($columns: 1fr, $gap: $spacing-md) {
+    display: grid;
+    grid-template-columns: $columns;
+    gap: $gap;
+}
+
+@mixin grid-responsive($min-width: 280px, $gap: $spacing-lg) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+    gap: $gap;
+}
+
+// Container миксины
+@mixin container {
+    max-width: $large;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @media (max-width: $large) {
+        padding: 0 $spacing-lg;
+    }
+
+    @media (max-width: $tablet) {
+        padding: 0 $spacing-md;
+    }
+}
+
+@mixin container-fluid {
+    width: 100%;
+    padding: 0 $spacing-md;
+}
+
+// Card миксины
+@mixin card {
+    background: $background-white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
+    }
+}
+
+@mixin card-clickable {
+    cursor: pointer;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
+    }
+
+    &:active {
+        transform: translateY(-2px);
+        box-shadow: $shadow-sm;
+    }
+}
+
+// Button миксины
+@mixin button-base {
+    border: none;
+    border-radius: $border-radius-sm;
+    padding: $spacing-sm $spacing-lg;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-fast;
+    @include flex-center;
+    gap: $spacing-xs;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+@mixin button-primary {
+    @include button-base;
+    background: $primary-color;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background: $primary-dark;
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+}
+
+@mixin button-success {
+    @include button-base;
+    background: $success-color;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background: $success-dark;
+    }
+}
+
+@mixin button-danger {
+    @include button-base;
+    background: $danger-color;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background: $danger-dark;
+    }
+}
+
+@mixin button-outline {
+    @include button-base;
+    background: transparent;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+
+    &:hover:not(:disabled) {
+        background: rgba($primary-color, 0.1);
+    }
+}
+
+@mixin button-ghost {
+    @include button-base;
+    background: transparent;
+    color: $text-color;
+
+    &:hover:not(:disabled) {
+        background: $background-light;
+    }
+}
+
+// Typography миксины
+@mixin heading-1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $text-color;
+
+    @media (max-width: $tablet) {
+        font-size: 28px;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 24px;
+    }
+}
+
+@mixin heading-2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: $text-color;
+
+    @media (max-width: $tablet) {
+        font-size: 22px;
+    }
+
+    @media (max-width: $mobile) {
+        font-size: 20px;
+    }
+}
+
+@mixin heading-3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: $text-color;
+}
+
+@mixin text-ellipsis($lines: 1) {
+    @if $lines == 1 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+// Animation миксины
+@mixin fade-in {
+    animation: fadeIn $transition-normal ease-in;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin slide-in($direction: 'left') {
+    animation: slideIn $transition-normal ease-out;
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(if($direction == 'left', -100%, 100%));
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
+
+@mixin pulse {
+    animation: pulse 2s infinite;
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+
+@mixin spin {
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+// Responsive миксины
+@mixin mobile-only {
+    @media (max-width: #{$mobile - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet-only {
+    @media (min-width: $mobile) and (max-width: #{$tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media (min-width: $tablet) and (max-width: #{$desktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin large-only {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin tablet-up {
+    @media (min-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin desktop-up {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin large-up {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+// Position миксины
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin absolute-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin fixed-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// Scroll миксины
+@mixin hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@mixin custom-scrollbar($width: 8px, $thumb-color: $primary-color, $track-color: $border-light) {
+    &::-webkit-scrollbar {
+        width: $width;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $track-color;
+        border-radius: $width / 2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $thumb-color;
+        border-radius: $width / 2;
+
+        &:hover {
+            background: darken($thumb-color, 10%);
+        }
+    }
+}
+
+// Loading миксины
+@mixin loading-spinner($size: 40px, $color: $primary-color) {
+    width: $size;
+    height: $size;
+    border: 3px solid rgba($color, 0.2);
+    border-top-color: $color;
+    border-radius: 50%;
+    @include spin;
+}
+
+@mixin loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        $border-light 25%,
+        $background-light 50%,
+        $border-light 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+
+    @keyframes loading {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+}
+
+// Hover эффекты
+@mixin hover-lift {
+    transition: transform $transition-fast;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+@mixin hover-scale {
+    transition: transform $transition-fast;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+@mixin hover-opacity {
+    transition: opacity $transition-fast;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,103 @@
+.header {
+    background: white;
+    padding: 16px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &__logo {
+        cursor: pointer;
+        
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+            
+            &:hover {
+                color: #4a90e2;
+            }
+        }
+    }
+
+    &__search {
+        flex: 1;
+        max-width: 500px;
+        display: flex;
+        gap: 8px;
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+
+            &:focus {
+                outline: none;
+                border-color: #4a90e2;
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+
+            &:hover {
+                background: #357abd;
+            }
+        }
+    }
+
+    &__categories {
+        min-width: 200px;
+    }
+
+    &__category-select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+    }
+
+    &__cart-btn {
+        background: none;
+        border: 1px solid #4a90e2;
+        color: #4a90e2;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+            background: #f0f7ff;
+        }
+    }
+
+    &__cart-count {
+        background: #4a90e2;
+        color: white;
+        border-radius: 12px;
+        padding: 2px 8px;
+        font-size: 12px;
+    }
+}

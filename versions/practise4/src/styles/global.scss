@@ -1,0 +1,244 @@
+@import './variables';
+@import './mixins';
+
+// Сброс стилей
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Базовые стили
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-color;
+    background-color: $background-light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Типография
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: $spacing-sm;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $text-color;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: $spacing-md;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: $primary-dark;
+        text-decoration: underline;
+    }
+}
+
+// Списки
+ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-lg;
+}
+
+// Изображения
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Формы
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    outline: none;
+}
+
+// Кнопки
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+// Таблицы
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+// Классы-хелперы
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-muted { color: $text-light; }
+.text-primary { color: $primary-color; }
+.text-success { color: $success-color; }
+.text-danger { color: $danger-color; }
+.text-warning { color: $warning-color; }
+
+.bg-white { background-color: $background-white; }
+.bg-light { background-color: $background-light; }
+
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.ml-0 { margin-left: 0; }
+.mr-0 { margin-right: 0; }
+
+.p-0 { padding: 0; }
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+.pl-0 { padding-left: 0; }
+.pr-0 { padding-right: 0; }
+
+// Утилиты для отступов
+@each $space in (xs, sm, md, lg, xl) {
+    $value: map-get((
+        xs: $spacing-xs,
+        sm: $spacing-sm,
+        md: $spacing-md,
+        lg: $spacing-lg,
+        xl: $spacing-xl
+    ), $space);
+
+    .m-#{$space} { margin: $value; }
+    .mt-#{$space} { margin-top: $value; }
+    .mb-#{$space} { margin-bottom: $value; }
+    .ml-#{$space} { margin-left: $value; }
+    .mr-#{$space} { margin-right: $value; }
+    .mx-#{$space} { 
+        margin-left: $value;
+        margin-right: $value;
+    }
+    .my-#{$space} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    .p-#{$space} { padding: $value; }
+    .pt-#{$space} { padding-top: $value; }
+    .pb-#{$space} { padding-bottom: $value; }
+    .pl-#{$space} { padding-left: $value; }
+    .pr-#{$space} { padding-right: $value; }
+    .px-#{$space} {
+        padding-left: $value;
+        padding-right: $value;
+    }
+    .py-#{$space} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+}
+
+// Контейнеры
+.container {
+    @include container;
+}
+
+.container-fluid {
+    @include container-fluid;
+}
+
+// Сетка
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -$spacing-sm;
+}
+
+.col {
+    flex: 1;
+    padding: $spacing-sm;
+}
+
+// Анимации
+.fade-in {
+    @include fade-in;
+}
+
+.slide-in-left {
+    @include slide-in('left');
+}
+
+.slide-in-right {
+    @include slide-in('right');
+}
+
+// Загрузка
+.loading-spinner {
+    @include loading-spinner;
+    margin: 0 auto;
+}
+
+.loading-skeleton {
+    @include loading-skeleton;
+    min-height: 20px;
+    border-radius: $border-radius-sm;
+}
+
+// Скрытие элементов
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+// Печать
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+// Доступность
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
