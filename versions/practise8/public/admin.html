@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админка - ВоенТорг</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>⚡ ВоенТорг - Администрирование</h1>
+            <nav>
+                <a href="/">Главная</a>
+                <span id="userName"></span>
+                <button id="logoutBtn">Выход</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="admin-panel">
+            <h2>Управление товарами</h2>
+
+            <button id="showAddFormBtn" class="btn-primary">+ Добавить товар</button>
+
+            <div id="productForm" class="product-form" style="display: none;">
+                <h3 id="formTitle">Добавление товара</h3>
+                <form onsubmit="saveProduct(event)">
+                    <input type="hidden" id="productId">
+                    <div class="form-group">
+                        <label>Название:</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Категория:</label>
+                        <select id="category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="Бронезащита">Бронезащита</option>
+                            <option value="Защита головы">Защита головы</option>
+                            <option value="Амуниция">Амуниция</option>
+                            <option value="Экипировка">Экипировка</option>
+                            <option value="Оптика">Оптика</option>
+                            <option value="Тактическое">Тактическое снаряжение</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Описание:</label>
+                        <textarea id="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Цена (₽):</label>
+                        <input type="number" id="price" step="100" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Сохранить</button>
+                        <button type="button" onclick="cancelForm()" class="btn-secondary">Отмена</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="productsList" class="admin-products"></div>
+        </section>
+    </main>
+
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>
