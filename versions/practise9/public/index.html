@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВоенТорг - магазин военного снаряжения</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>⚡ ВоенТорг</h1>
+            <nav>
+                <a href="/" class="active">Главная</a>
+                <a href="/login.html" id="loginLink">Вход</a>
+                <a href="/admin.html" id="adminLink" style="display: none;">Админка</a>
+                <button id="logoutBtn" style="display: none;">Выход</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Военное снаряжение высшего качества</h2>
+            <p>Только проверенная экипировка для выполнения любых задач</p>
+        </section>
+
+        <section class="filters">
+            <input type="text" id="searchInput" placeholder="Поиск по названию...">
+            <select id="categoryFilter">
+                <option value="">Все категории</option>
+                <option value="Бронезащита">Бронезащита</option>
+                <option value="Защита головы">Защита головы</option>
+                <option value="Амуниция">Амуниция</option>
+                <option value="Экипировка">Экипировка</option>
+            </select>
+        </section>
+
+        <div id="productsGrid" class="products-grid"></div>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
