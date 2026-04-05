@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#4285f4">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <title>PWA Заметки с Push</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+
+    <!-- ⚠️ ВАЖНО: Socket.IO клиент -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        nav button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav button.active {
+            background: white;
+            color: #4285f4;
+            border: 2px solid #4285f4;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button id="nav-home" class="active">📝 Заметки</button>
+        <button id="nav-about">ℹ️ О нас</button>
+    </nav>
+
+    <div id="app-content">
+        <div class="loading">⏳ Загрузка...</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

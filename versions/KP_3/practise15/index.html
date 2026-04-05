@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <!-- Для Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Цвет темы для браузера -->
+    <meta name="theme-color" content="#4285f4">
+    <!-- Для iOS (иконка на домашний экран) -->
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <!-- Для iOS (статус бар) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blacktranslucent">
+    <title>Заметки (13-18)</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <link rel="icon" href="icons/favicon.ico" sizes="16x16" type="image/ico">
+
+    <style>
+        /* Стили для навигации */
+        nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        nav button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        nav button:hover {
+            background: #3367d6;
+        }
+
+        nav button.active {
+            background: white;
+            color: #4285f4;
+            border: 2px solid #4285f4;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Навигация -->
+    <nav>
+        <button id="nav-home" class="active">📝 Заметки</button>
+        <button id="nav-about">ℹ️ О нас</button>
+    </nav>
+
+    <!-- Контейнер для динамического контента -->
+    <div id="app-content">
+        <div class="loading">⏳ Загрузка...</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
