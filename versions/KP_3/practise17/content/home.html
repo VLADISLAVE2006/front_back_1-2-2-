@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>А вот и «Заметки» - наше первое оффлайн-приложение</h1>
+
+    <form id="note-form" class="row">
+        <input class="col-12" type="text" id="note-input" placeholder="Введите заметку" required>
+
+        <div style="display: flex; gap: 10px; margin: 10px 0;">
+            <input class="col-6" type="date" id="reminder-date">
+            <input class="col-6" type="time" id="reminder-time">
+        </div>
+
+        <button class="col-12" type="submit">📝 Добавить заметку</button>
+    </form>
+
+    <div style="margin: 10px 0;">
+        <label>
+            <input type="checkbox" id="show-reminders-only"> 🔔 Показать только заметки с напоминаниями
+        </label>
+    </div>
+
+    <ul id="notes-list"></ul>
+</body>
+
+</html>
