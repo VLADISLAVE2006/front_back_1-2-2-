@@ -82,36 +82,29 @@ io.on('connection', (socket) => {
         // Рассылаем через WebSocket
         io.emit('taskAdded', task);
 
-        // Планируем напоминание, если есть
         if (task.reminder) {
             scheduleReminder(task.id, task.text, task.reminder);
         }
     });
 
     socket.on('deleteTask', ({ id }) => {
-        // Очищаем таймер при удалении заметки
         if (timers.has(id)) {
             clearTimeout(timers.get(id));
             timers.delete(id);
-            console.log(`🗑 Таймер удален для заметки ${id}`);
+            console.log(`Таймер удален для заметки ${id}`);
         }
     });
 
     socket.on('snoozeReminder', ({ id, newReminder }) => {
-        console.log(`⏰ Откладывание напоминания для заметки ${id}`);
+        console.log(`Откладывание напоминания для заметки ${id}`);
 
-        // Получаем текст заметки (нужно найти в localStorage или переданном)
-        // Для простоты - получаем из запроса
         socket.emit('reminderUpdated', { id, newReminder });
 
-        // Обновляем таймер
         if (timers.has(id)) {
             clearTimeout(timers.get(id));
             timers.delete(id);
         }
 
-        // Здесь нужно перепланировать с новым временем
-        // В реальном проекте текст нужно получить из БД
     });
 
     socket.on('disconnect', () => {
@@ -134,16 +127,11 @@ app.post('/unsubscribe', (req, res) => {
 const PORT = 3001;
 appHttp.listen(PORT, () => {
     console.log(`
-    ═══════════════════════════════════════════
-    🚀 СЕРВЕР ЗАПУЩЕН
-    📡 http://localhost:${PORT}
-    🔌 WebSocket: активен
-    🔔 Планировщик напоминаний: активен
-    ═══════════════════════════════════════════
+    СЕРВЕР ЗАПУЩЕН
+    http://localhost:${PORT}
     `);
 });
 
-// Очистка таймеров при завершении
 process.on('SIGINT', () => {
     console.log('\n🛑 Остановка сервера, очистка таймеров...');
     for (const timer of timers.values()) {
